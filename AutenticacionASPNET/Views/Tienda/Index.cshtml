@@ -1,0 +1,43 @@
+﻿@model List<AutenticacionASPNET.Models.Producto>
+@{
+    ViewData["Title"] = "Tienda";
+}
+
+<div class="container mt-4">
+    <h1>🛒 Tienda de Productos</h1>
+    <p class="lead">Explora nuestro catálogo de productos disponibles</p>
+    <hr>
+
+    <div class="row g-4 mt-3">
+        @foreach (var producto in Model)
+        {
+            <div class="col-md-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h4 class="card-title">@producto.Nombre</h4>
+                        <p class="card-text text-muted">@producto.Descripcion</p>
+                        <h3 class="text-success">$@producto.Precio.ToString("N2")</h3>
+                        <p class="text-muted">
+                            <small>
+                                <strong>Stock disponible:</strong>
+                                <span class="badge bg-@(producto.Stock > 10 ? "success" : "warning")">
+                                    @producto.Stock unidades
+                                </span>
+                            </small>
+                        </p>
+                    </div>
+                    <div class="card-footer">
+                        <a asp-action="Detalle" asp-route-id="@producto.Id" class="btn btn-primary w-100">Ver Detalles</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning text-center mt-5">
+            <h4>No hay productos disponibles en este momento</h4>
+        </div>
+    }
+</div>

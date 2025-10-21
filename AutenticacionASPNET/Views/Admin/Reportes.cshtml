@@ -1,0 +1,59 @@
+﻿@{
+    ViewData["Title"] = "Reportes";
+}
+
+<div class="container mt-4">
+    <h1>📊 Reportes del Sistema</h1>
+    <hr>
+
+    <div class="row g-4 mt-3">
+        <div class="col-md-3">
+            <div class="card bg-primary text-white shadow">
+                <div class="card-body text-center">
+                    <h1 class="display-4">@ViewBag.TotalUsuarios</h1>
+                    <p class="mb-0">Total de Usuarios</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-success text-white shadow">
+                <div class="card-body text-center">
+                    <h1 class="display-4">@ViewBag.UsuariosActivos</h1>
+                    <p class="mb-0">Usuarios Activos</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-info text-white shadow">
+                <div class="card-body text-center">
+                    <h1 class="display-4">@ViewBag.TotalProductos</h1>
+                    <p class="mb-0">Total de Productos</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card bg-warning text-dark shadow">
+                <div class="card-body text-center">
+                    <h1 class="display-4">@ViewBag.ProductosActivos</h1>
+                    <p class="mb-0">Productos Activos</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card bg-dark text-white shadow">
+                <div class="card-body text-center">
+                    <h2 class="display-5">$@ViewBag.ValorInventario.ToString("N2")</h2>
+                    <p class="lead mb-0">Valor Total del Inventario</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a asp-action="Index" class="btn btn-secondary mt-4">← Volver al Panel</a>
+</div>

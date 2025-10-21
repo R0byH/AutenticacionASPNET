@@ -1,0 +1,104 @@
+﻿@* @{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+ *@
+@{
+    ViewData["Title"] = "Inicio";
+}
+
+<div class="text-center mb-5">
+    <h1 class="display-4">Bienvenido a ProyectoMVC</h1>
+    <p class="lead">Sistema de autorización sin Identity - ASP.NET Core 8</p>
+</div>
+
+<div class="row mt-5 g-4">
+    <div class="col-md-4">
+        <div class="card text-center h-100 shadow-sm">
+            <div class="card-body">
+                <h2 class="text-primary">🎮</h2>
+                <h3>Juegos</h3>
+                <p>Juegos educativos y aventuras para menores de 18 años.</p>
+                <small class="text-muted">Requiere: Menor de edad + Autenticado</small>
+                <hr>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-controller="Juegos" asp-action="Index" class="btn btn-primary">Ir a Juegos</a>
+                }
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login" class="btn btn-outline-primary">Inicia sesión</a>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card text-center h-100 shadow-sm">
+            <div class="card-body">
+                <h2 class="text-success">📚</h2>
+                <h3>Actividades</h3>
+                <p>Deportes, tareas y actividades educativas para menores.</p>
+                <small class="text-muted">Requiere: Menor de edad + Autenticado</small>
+                <hr>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-controller="Actividades" asp-action="Index" class="btn btn-success">Ir a Actividades</a>
+                }
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login" class="btn btn-outline-success">Inicia sesión</a>
+                }
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <div class="card text-center h-100 shadow-sm">
+            <div class="card-body">
+                <h2 class="text-info">🛒</h2>
+                <h3>Tienda</h3>
+                <p>Catálogo de productos disponible para usuarios registrados.</p>
+                <small class="text-muted">Requiere: Rol Usuario o Admin</small>
+                <hr>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <a asp-controller="Tienda" asp-action="Index" class="btn btn-info">Ver Tienda</a>
+                }
+                else
+                {
+                    <a asp-controller="Account" asp-action="Login" class="btn btn-outline-info">Inicia sesión</a>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
+@if (User.IsInRole("Admin"))
+{
+    <div class="row mt-4">
+        <div class="col-12">
+            <div class="card bg-dark text-white shadow">
+                <div class="card-body text-center">
+                    <h2>🛠️ Panel de Administración</h2>
+                    <p>Acceso exclusivo para administradores</p>
+                    <a asp-controller="Admin" asp-action="Index" class="btn btn-warning btn-lg">Ir al Panel Admin</a>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@if (!User.Identity.IsAuthenticated)
+{
+    <div class="alert alert-info mt-5 text-center shadow">
+        <h4>¿Listo para comenzar?</h4>
+        <p>Crea tu cuenta para acceder a todo el contenido</p>
+        <a asp-controller="Account" asp-action="Register" class="btn btn-primary btn-lg me-2">Registrarse</a>
+        <a asp-controller="Account" asp-action="Login" class="btn btn-outline-primary btn-lg">Iniciar Sesión</a>
+    </div>
+}

@@ -1,0 +1,62 @@
+﻿@{
+    ViewData["Title"] = "Panel de Administración";
+}
+
+<div class="container mt-4">
+    <h1 class="display-4">🛠️ Panel de Administración</h1>
+    <p class="lead">Bienvenido al panel de control administrativo</p>
+    <hr>
+
+    <div class="row mt-5 g-4">
+        <div class="col-md-4">
+            <div class="card text-center h-100 border-primary shadow">
+                <div class="card-body">
+                    <h2 class="text-primary">👥</h2>
+                    <h3>Usuarios</h3>
+                    <p>Gestiona los usuarios del sistema</p>
+                    <ul class="list-unstyled text-start">
+                        <li>✓ Ver lista de usuarios</li>
+                        <li>✓ Editar información</li>
+                        <li>✓ Cambiar roles</li>
+                        <li>✓ Activar/Desactivar</li>
+                    </ul>
+                    <a asp-action="Usuarios" class="btn btn-primary w-100">Gestionar Usuarios</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card text-center h-100 border-success shadow">
+                <div class="card-body">
+                    <h2 class="text-success">📦</h2>
+                    <h3>Productos</h3>
+                    <p>Administra el catálogo de productos</p>
+                    <ul class="list-unstyled text-start">
+                        <li>✓ Crear productos</li>
+                        <li>✓ Editar información</li>
+                        <li>✓ Gestionar stock</li>
+                        <li>✓ Eliminar productos</li>
+                    </ul>
+                    <a asp-action="Productos" class="btn btn-success w-100">Gestionar Productos</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card text-center h-100 border-info shadow">
+                <div class="card-body">
+                    <h2 class="text-info">📊</h2>
+                    <h3>Reportes</h3>
+                    <p>Consulta estadísticas del sistema</p>
+                    <ul class="list-unstyled text-start">
+                        <li>✓ Total de usuarios</li>
+                        <li>✓ Total de productos</li>
+                        <li>✓ Valor de inventario</li>
+                        <li>✓ Estadísticas generales</li>
+                    </ul>
+                    <a asp-action="Reportes" class="btn btn-info w-100">Ver Reportes</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
